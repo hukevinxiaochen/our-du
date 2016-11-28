@@ -26,3 +26,7 @@ This script relies heavily on GNU coreutils. In essence, we are trying to a reas
 
 [fts][fts] helps us traverse the file hierarchy.
 
+# Test
+
+Run tests using `py.test`. I suck at testing so I just chose something off-the-shelf.
+
