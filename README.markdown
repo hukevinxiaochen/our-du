@@ -30,7 +30,7 @@ This script relies heavily on GNU coreutils. In essence, we are trying to a reas
 
 ## Get dependencies
 
-Set up a virtual environment using `python -m venv virtual_env`.
+Set up a virtual environment using `python -m venv virtual_env`. Make sure to have `wheel` installed per the [Python Packaging Authority][PyPA] - not sure why.
 
 Get required python package dependencies using `pip install -r requirements.txt`.
 

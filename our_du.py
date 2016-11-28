@@ -1,4 +1,4 @@
-#!/Users/KHU/Desktop/keep/tools/my_du/virtual_env/bin/python
+#!/Users/KHU/Desktop/keep/tools/our_du/virtual_env/bin/python
 """Use Our DU to manage our disk space.
 
 SYSTEM REQUIREMENTS:
@@ -36,3 +36,4 @@ def stat(path_to_file):
 
 if __name__ == "__main__":
     stat("README.markdown")
+
