@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/Users/KHU/Desktop/keep/tools/my_du/virtual_env/bin/python
+
 """Use My DU to keep your files clean.
 
 SYSTEM REQUIREMENTS:
@@ -7,16 +8,16 @@ SYSTEM REQUIREMENTS:
     - Python 3.5.1
 """
 
+# Some useful administrative information
 from sys import executable as which_python
-print("Welcome. We are using the python located here {}".format(which_python))
+print("Welcome. We are using the python located here {}.".format(which_python))
 
 import subprocess
 
-# Use data from GNU coreutils' stat.
-# We invoke it using the token `gstat` because OS X includes its own stat.
-
 def stat(path_to_file):
     """stat invokes gstat
+
+    gstat is what we call the GNU coreutils `stat` package when we are on OS X.
 
     gstat is invoked with the --format option:
 
