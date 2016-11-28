@@ -12,3 +12,6 @@ One of the main ways to gain insight about disk usage is the GNU coreutil [du][d
 
 With [subprocess][subprocess], we can take the output of [du][du] and manipulate with Python.
 
+## GNU coreutils
+
+[stat][stat] can return the birth date, most recent access date, and the file size of any file.
