@@ -1,3 +1,9 @@
+# TODO
+
+* read about GNU [find][find]
+* write a test that verifies our functions actually find all desired files
+* what are the desired files?
+
 # Motivation
 
 This script is the beginning of a more responsible approach to using precious SSD space. It aims to make staying neat and space-efficient easy by showing users the directories that are actively used versus stale versus ready for archiving.
@@ -41,5 +47,4 @@ Get required python package dependencies using `pip install -r requirements.txt`
 ## Test
 
 Run tests using `py.test`. I suck at testing so I just chose something off-the-shelf.
-
 

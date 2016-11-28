@@ -11,8 +11,10 @@ SYSTEM REQUIREMENTS:
 from sys import executable as which_python
 print("Welcome. We are using the python located here {}.".format(which_python))
 
+# Let's get down to business
 import subprocess
 
+# A function that takes file arguments and spits out the desired info.
 def stat(path_to_file):
     """stat invokes gstat
 
