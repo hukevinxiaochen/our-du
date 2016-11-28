@@ -1,6 +1,5 @@
 #!/Users/KHU/Desktop/keep/tools/my_du/virtual_env/bin/python
-
-"""Use My DU to keep your files clean.
+"""Use Our DU to manage our disk space.
 
 SYSTEM REQUIREMENTS:
     - OS X 10.10.5
