@@ -48,3 +48,9 @@ Get required python package dependencies using `pip install -r requirements.txt`
 
 Run tests using `py.test`. I suck at testing so I just chose something off-the-shelf.
 
+# Learning
+
+## To see an old version of the repository
+
+`git checkout -b discover discovery`
+
