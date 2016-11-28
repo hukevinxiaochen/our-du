@@ -1,2 +1,5 @@
 # python
 virtual_env/
+
+# pytest
+.cache/
