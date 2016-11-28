@@ -3,3 +3,4 @@ virtual_env/
 
 # pytest
 .cache/
+tests/__pycache__/
