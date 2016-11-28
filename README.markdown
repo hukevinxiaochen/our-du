@@ -32,6 +32,12 @@ This script relies heavily on GNU coreutils. In essence, we are trying to a reas
 
 Set up a virtual environment using `python -m venv virtual_env`.
 
+Get required python package dependencies using `pip install -r requirements.txt`.
+
+### Python packages
+
+* pytest - testing framework
+
 ## Test
 
 Run tests using `py.test`. I suck at testing so I just chose something off-the-shelf.
