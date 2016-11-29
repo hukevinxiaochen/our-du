@@ -1,4 +1,3 @@
-#!/Users/KHU/Desktop/keep/tools/our_du/virtual_env/bin/python
 """Use Our DU to manage our disk space.
 
 SYSTEM REQUIREMENTS:
@@ -63,6 +62,7 @@ def our_du(f):
         pp.pprint(stats)
 
 if __name__ == "__main__":
+    import sys
     about()
-    our_du(".")
+    our_du(str(sys.argv[1]))
 
