@@ -4,6 +4,8 @@ SYSTEM REQUIREMENTS:
     - OS X 10.10.5
     - Python 3.5.1
 """
+# Use the Click framework. Pocoo is incredible. Long live Armin Ronacher!
+import click
 
 # Some useful administrative information
 from sys import executable as which_python
@@ -14,7 +16,7 @@ def about():
     print("Welcome. We are using the python located here {}.".format(which_python))
 
 # Useful reference information
-IGNORE_THESE = [".git", ".gitignore", "bin", "usr", ".cache", "virtual_env"]
+IGNORE_THESE = [".git", ".gitignore", "bin", "usr", ".cache", "venv", "__pycache__", "our_du.egg-info"]
 
 # Define some helpers
 from os import path
@@ -28,17 +30,21 @@ def getfiledata(p):
     size = path.getsize(p)
     return "{}\t{}\t{}".format(last_access_time, size, p)
 
-def removeignorednames(l):
+def should_ignore(x):
     """Removes files that we want to ignore from walk path
     """
-    for x in l:
-        if x in IGNORE_THESE:
-            l.remove(x)
+    if x in IGNORE_THESE:
+        return True
+    else:
+        return False
 
 # Let's get down to business
 from os import walk, stat
 import pprint
+from itertools import filterfalse
 
+@click.command()
+@click.argument('f')
 def our_du(f):
     """Walks the file hierarchy for folder f.
 
@@ -50,19 +56,21 @@ def our_du(f):
     actually care to examine/check.
     """
     for frootp, fsbdrn, ffilesn in walk(f):
-        removeignorednames(fsbdrn)
-        removeignorednames(ffilesn)
-        all_the_stuff = fsbdrn + ffilesn
-        
         pp = pprint.PrettyPrinter(indent=4)
-        
+
+        print("Initial directory list")
+        pp.pprint(fsbdrn)
+        fsbdrn[:] = [x for x in fsbdrn if not should_ignore(x)]
+        # removeignorednames(fsbdrn)
+        print("Filtered directory list")
+        pp.pprint(fsbdrn)
+        ffilesn[:] = [x for x in ffilesn if not should_ignore(x)]
+        # removeignorednames(ffilesn)
+ 
+        all_the_stuff = fsbdrn + ffilesn
+
         all_the_paths = [path.abspath(path.join(frootp, x)) for x in \
                 all_the_stuff]
         stats = [getfiledata(x) for x in all_the_paths]
-        pp.pprint(stats)
-
-if __name__ == "__main__":
-    import sys
-    about()
-    our_du(str(sys.argv[1]))
+        # pp.pprint(stats)
 
