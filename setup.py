@@ -6,6 +6,7 @@ setup(
     py_modules=['our_du'],
     install_requires=[
         'Click',
+        'pytest',
     ],
     entry_points='''
         [console_scripts]

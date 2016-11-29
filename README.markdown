@@ -12,7 +12,14 @@ One of the principles of responsible resource management is conservation. The gr
 
 # III. Getting Started
 
-`git clone`
+* TODO: Make this even easier. This is not very user friendly installation. Not user friendly usage either.
+
+clone the repo: `git clone`  
+create a virtual environment `python -m venv venv`  
+activate it `. venv/bin/activate`  
+install the module into it `pip install --editable`  
+run the tests `pytest tests`  
+run it `our_du .`
 
 # III. Contribute
 
