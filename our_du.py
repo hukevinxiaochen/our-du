@@ -3,50 +3,66 @@
 
 SYSTEM REQUIREMENTS:
     - OS X 10.10.5
-    - GNU coreutils installed via Homebrew
     - Python 3.5.1
 """
 
 # Some useful administrative information
 from sys import executable as which_python
-print("Welcome. We are using the python located here {}.".format(which_python))
+
+def about():
+    """Print some runtime details.
+    """
+    print("Welcome. We are using the python located here {}.".format(which_python))
+
+# Useful reference information
+IGNORE_THESE = [".git", ".gitignore", "bin", "usr", ".cache", "virtual_env"]
+
+# Define some helpers
+from os import path
+
+def getfiledata(p):
+    """Gets data about file at path p
+
+    Returns a formatted string with relevant data.
+    """
+    last_access_time = path.getatime(p)
+    size = path.getsize(p)
+    return "{}\t{}\t{}".format(last_access_time, size, p)
+
+def removeignorednames(l):
+    """Removes files that we want to ignore from walk path
+    """
+    for x in l:
+        if x in IGNORE_THESE:
+            l.remove(x)
 
 # Let's get down to business
-import subprocess
+from os import walk, stat
+import pprint
 
-# TODO: Consider using decorators to abstract these GNU utils
-# A function that takes file arguments and spits out the desired info.
-def stat(file_path):
-    """Invokes GNU stat (gstat on OS X)
+def our_du(f):
+    """Walks the file hierarchy for folder f.
 
-    gstat is what we call the GNU coreutils `stat` package when we are on OS X.
+    fpath - the path of folder f
+    fsbdrn - a list of names of subdirectories found in folder f
+    ffilesn - a list of names of files found in folder f
 
-    gstat is invoked with the --format option:
-
-    %s - size in bytes
-    %x - last accessed date
-    %w - birth date
-    %n - file name
-
-    TODO: Make this script work on Linux too.
+    IGNORE_THESE - a global, see above. It lists all the files we do not
+    actually care to examine/check.
     """
-
-    completed_process = subprocess.run(["gstat", "--format", "%s %x %w %n", file_path], stdout=subprocess.PIPE)
-
-    # print(completed_process.stdout)
-    stats = completed_process.stdout
-    return stats
-
-def find(file_path):
-    """Invokes GNU find (gfind on OS X)
-    """
-
-    completed_process = subprocess.run(["gfind", file_path, "-printf", "%a %s %p"], stdout=subprocess.PIPE)
-
-    # print(completed_process.stdout)
-    found = completed_process.stdout
-    return found
+    for frootp, fsbdrn, ffilesn in walk(f):
+        removeignorednames(fsbdrn)
+        removeignorednames(ffilesn)
+        all_the_stuff = fsbdrn + ffilesn
+        
+        pp = pprint.PrettyPrinter(indent=4)
+        
+        all_the_paths = [path.abspath(path.join(frootp, x)) for x in \
+                all_the_stuff]
+        stats = [getfiledata(x) for x in all_the_paths]
+        pp.pprint(stats)
 
 if __name__ == "__main__":
-    stat("README.markdown")
+    about()
+    our_du(".")
 
