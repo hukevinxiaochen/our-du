@@ -1,5 +1,5 @@
 # Goals
-* portability
+* portability - write as a command line tool
 
 # Motivation
 
