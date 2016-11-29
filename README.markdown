@@ -22,7 +22,11 @@ install the module into it `pip install --editable`
 run the tests `pytest tests`  
 run it `our_du .`
 
-# III. Contribute
+## A. How it works
+
+* TODO: Make it actually give results that are readable and sorted by age and size.
+
+# IV. Contribute
 
 ## A. Get dependencies
 
@@ -37,11 +41,11 @@ We use setuptools develop mode. `pip install --editable .` This workflow involve
 
 * pytest - testing framework
 
-## B. Test
+## V. Test
 
 I activate the virtual environment to run tests using `pytest tests -v`. I suck at testing so I just chose something off-the-shelf.
 
-# IV. Discovery 
+# VI. Discovery 
 
 In the early discovery stages of the project I wrote wrappers around GNU stat and GNU find, and did quite a bit of learning about those command line tools/how to use them to get file size and access time data.
 
