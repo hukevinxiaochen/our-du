@@ -7,5 +7,3 @@ def test_it_is_executable():
     path_to_script = "{0}/{1}".format(WHERE_SHIT_BE_AT, SCRIPT_NAME)
     assert subprocess.call([path_to_script]) == 0
 
-def test_it_finds_all_the_files():
-
