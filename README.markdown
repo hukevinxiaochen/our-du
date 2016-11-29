@@ -13,6 +13,7 @@ One of the principles of responsible resource management is conservation. The gr
 # III. Getting Started
 
 * TODO: Make this even easier. This is not very user friendly installation. Not user friendly usage either.
+* TODO: Go to PyPA to learn how to package this up for PyPI, see sample repo and slack-cleaner for inspiration
 
 clone the repo: `git clone`  
 create a virtual environment `python -m venv venv`  
