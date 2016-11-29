@@ -1,8 +1,5 @@
-# TODO
-
-* read about GNU [find][find]
-* write a test that verifies our functions actually find all desired files
-* what are the desired files?
+# Goals
+* portability
 
 # Motivation
 
@@ -12,7 +9,29 @@ This script is the beginning of a more responsible approach to using precious SS
 
 One of the principles of responsible resource management is conservation. The greenest building is the one that is never built. Similarly, disk space is something that should be conserved (I think).
 
-# How it works
+# Contribute
+
+## Get dependencies
+
+Set up a virtual environment using `python -m venv virtual_env`. Make sure to have `wheel` installed per the [Python Packaging Authority][PyPA] - not sure why.
+
+Get required python package dependencies using `pip install -r requirements.txt`.
+
+### Python packages
+
+* pytest - testing framework
+
+## Test
+
+I activate the virtual environment to run tests using `py.test`. I suck at testing so I just chose something off-the-shelf.
+
+# Discovery 
+
+In the early discovery stages of the project I wrote wrappers around GNU stat and GNU find, and did quite a bit of learning about those command line tools/how to use them to get file size and access time data.
+
+If you are interested for academic purposes you can see how things looked then:
+
+`git checkout -b discover discovery`
 
 ## Python Subprocess
 
@@ -32,25 +51,5 @@ This script relies heavily on GNU coreutils. In essence, we are trying to a reas
 
 [fts][fts] helps us traverse the file hierarchy.
 
-# Contribute
-
-## Get dependencies
-
-Set up a virtual environment using `python -m venv virtual_env`. Make sure to have `wheel` installed per the [Python Packaging Authority][PyPA] - not sure why.
-
-Get required python package dependencies using `pip install -r requirements.txt`.
-
-### Python packages
-
-* pytest - testing framework
-
-## Test
-
-Run tests using `py.test`. I suck at testing so I just chose something off-the-shelf.
-
-# Learning
-
-## To see an old version of the repository
-
-`git checkout -b discover discovery`
+[find][find] traverses the file hierachy while running [stat][stat] along the way. It provides options for filtering the file hierarchy as you go so you can find what you are interested in. It is part of the GNU [findutils][findutils].
 
