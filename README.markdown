@@ -1,31 +1,39 @@
-# Goals
+# I. Goals
+
 * portability - write as a command line tool
 
-# Motivation
+# II. Motivation
 
 This script is the beginning of a more responsible approach to using precious SSD space. It aims to make staying neat and space-efficient easy by showing users the directories that are actively used versus stale versus ready for archiving.
 
-## Conservation
+## A. Conservation
 
 One of the principles of responsible resource management is conservation. The greenest building is the one that is never built. Similarly, disk space is something that should be conserved (I think).
 
-# Contribute
+# III. Getting Started
 
-## Get dependencies
+`git clone`
+
+# III. Contribute
+
+## A. Get dependencies
 
 Set up a virtual environment using `python -m venv virtual_env`. Make sure to have `wheel` installed per the [Python Packaging Authority][PyPA] - not sure why.
 
 Get required python package dependencies using `pip install -r requirements.txt`.
 
-### Python packages
+## B. Install
+We use setuptools develop mode. `pip install --editable .` This workflow involves installing our module into the local virtualenv.
+
+### 1. Python packages
 
 * pytest - testing framework
 
-## Test
+## B. Test
 
-I activate the virtual environment to run tests using `py.test`. I suck at testing so I just chose something off-the-shelf.
+I activate the virtual environment to run tests using `pytest tests -v`. I suck at testing so I just chose something off-the-shelf.
 
-# Discovery 
+# IV. Discovery 
 
 In the early discovery stages of the project I wrote wrappers around GNU stat and GNU find, and did quite a bit of learning about those command line tools/how to use them to get file size and access time data.
 
@@ -33,7 +41,7 @@ If you are interested for academic purposes you can see how things looked then:
 
 `git checkout -b discover discovery`
 
-## Python Subprocess
+## A. Python Subprocess
 
 The Python [subprocess][subprocess] library as proposed in [PEP](https://www.python.org/dev/peps/pep-0324/) is a great way to make Python a replacement language for over-complicated shell scripts.
 
@@ -41,7 +49,7 @@ One of the main ways to gain insight about disk usage is the GNU coreutil [du][d
 
 With [subprocess][subprocess], we can take the output of [du][du] and manipulate it with Python.
 
-## GNU coreutils
+## B. GNU coreutils
 
 This script relies heavily on GNU coreutils. In essence, we are trying to a reasonable front-end to core system tools that will help us efficiently manage disk space.
 
