@@ -1,9 +1,14 @@
 # python
-virtual_env/
+*__pycache__
 
 # pytest
 .cache/
-tests/__pycache__/
+
+# setuptools
+*.egg-info
+
+# venv
+venv
 
 # GNU find fprintf find_results.txt output
 find_results.txt
